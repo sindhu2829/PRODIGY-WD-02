@@ -1,0 +1,189 @@
+/* Resetting default margins and paddings */
+body, h1, ul {
+   margin: 0;
+   padding: 0;
+}
+
+/* Basic body styling */
+body {
+   font-family: 'Arial', sans-serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   background: linear-gradient(135deg, #0700DE, #DDFFC9);
+   color: #333;
+   margin: 0;
+   background-size: 400% 400%;
+   animation: backgroundAnimation 15s ease infinite;
+}
+
+/* Stopwatch container styling with glassmorphism */
+.stopwatch {
+   background: rgba(255, 255, 255, 0.3);
+   padding: 40px;
+   border-radius: 12px;
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(10px);
+   text-align: center;
+   max-width: 350px;
+   width: 100%;
+   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Display styling with glow effect */
+#display {
+   font-size: 48px;
+   font-weight: bold;
+   color: #444;
+   margin-bottom: 30px;
+   padding: 15px 0;
+   border-bottom: 2px solid #ddd;
+   text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Control buttons styling with gradient and animation */
+.controls button {
+   background: linear-gradient(45deg, #4CAF50, #3e8e41);
+   color: white;
+   border: none;
+   border-radius: 25px;
+   padding: 15px 30px;
+   font-size: 18px;
+   margin: 5px;
+   cursor: pointer;
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
+   position: relative;
+   overflow: hidden;
+}
+
+.controls button::before {
+   content: "";
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 300%;
+   height: 300%;
+   background: rgba(255, 255, 255, 0.3);
+   transition: all 0.75s;
+   border-radius: 50%;
+   transform: translate(-50%, -50%) scale(0);
+}
+
+.controls button:hover::before {
+   transform: translate(-50%, -50%) scale(1);
+}
+
+.controls button:hover {
+   transform: translateY(-3px);
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.controls button:active {
+   background: linear-gradient(45deg, #3e8e41, #367a34);
+   transform: scale(0.95);
+}
+
+/* Lap list styling with alternating colors */
+#laps {
+   list-style: none;
+   margin-top: 20px;
+   max-height: 150px;
+   overflow-y: auto;
+   padding-right: 5px;
+   scroll-behavior: smooth;
+}
+
+#laps li {
+   background-color: #f8f8f8;
+   padding: 10px;
+   border-radius: 5px;
+   margin-top: 10px;
+   font-size: 18px;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+#laps li:nth-child(odd) {
+   background-color: #f0f0f0;
+}
+
+#laps li:nth-child(even) {
+   background-color: #e0e0e0;
+}
+
+/* Scrollbar styling for lap list */
+#laps::-webkit-scrollbar {
+   width: 8px;
+}
+
+#laps::-webkit-scrollbar-track {
+   background-color: #ddd;
+   border-radius: 5px;
+}
+
+#laps::-webkit-scrollbar-thumb {
+   background-color: #4CAF50;
+   border-radius: 5px;
+}
+
+/* Floating Action Button for theme toggle */
+.fab {
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   background-color: #008CBA;
+   color: white;
+   border-radius: 50%;
+   width: 60px;
+   height: 60px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 24px;
+   cursor: pointer;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.fab:hover {
+   background-color: #45a049;
+   transform: translateY(-3px);
+}
+
+/* Dark mode styling */
+body.dark-mode {
+   background: linear-gradient(135deg, #333, #666);
+   color: #fff;
+}
+
+body.dark-mode .stopwatch {
+   background-color: rgba(34, 34, 34, 0.8);
+   color: #eee;
+   border: 1px solid rgba(34, 34, 34, 0.8);
+}
+
+body.dark-mode #display {
+   border-bottom: 2px solid #555;
+}
+
+body.dark-mode .controls button {
+   background: linear-gradient(45deg, #555, #444);
+   color: #ddd;
+}
+
+body.dark-mode #laps li {
+   background-color: #555;
+   color: #ddd;
+}
+
+body.dark-mode .fab {
+   background-color: #444;
+   color: #ddd;
+}
+
+/* Background animation */
+@keyframes backgroundAnimation {
+   0% { background-position: 0% 50%; }
+   50% { background-position: 100% 50%; }
+   100% { background-position: 0% 50%; }
+}
